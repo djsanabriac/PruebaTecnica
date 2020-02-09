@@ -13,6 +13,14 @@ public class MockController {
 
     @PostMapping("/mock_score")
     public ResponseEntity search(@RequestBody Map<String, String> body){
+
+        try {
+            long ms = (long) (Math.random() * 200 + 500) ;
+            Thread.sleep(ms);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         String url = body.get("url");
         return url != null ?
                 ResponseEntity.ok(new GeneralResponse<>(true, "score_success", truncateDecimal(Math.random(), 2)).toMap()) :
