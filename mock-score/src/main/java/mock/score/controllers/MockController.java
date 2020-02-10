@@ -1,8 +1,8 @@
 package mock.score.controllers;
 
-import mock.score.GeneralResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import score.middle.dto.GeneralResponse;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.Map;
 public class MockController {
 
     @PostMapping("/mock_score")
-    public ResponseEntity search(@RequestBody Map<String, String> body){
+    public ResponseEntity mockScore(@RequestBody Map<String, String> body){
 
         try {
             long ms = (long) (Math.random() * 200 + 500) ;

@@ -1,19 +1,23 @@
-package mock.score;
+package score.middle.dto;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class GeneralResponse<T>{
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class URLScoreResponse{
 
     private Boolean success;
     private String message;
-    private T data;
+    private Double data;
 
-    public GeneralResponse(){}
+    public URLScoreResponse(){}
 
-    public GeneralResponse(Boolean success,
-                    String message,
-                    T data){
+    public URLScoreResponse(Boolean success,
+                            String message,
+                            Double data){
         this.success = success;
         this.message = message;
         this.data = data;
@@ -35,11 +39,26 @@ public class GeneralResponse<T>{
         this.message = message;
     }
 
+    public Double getData(){ return this.data; }
+
+    public void setData(Double data){
+        this.data = data;
+    }
+
     public Map<String, Object> toMap(){
         HashMap<String, Object> toReturn = new HashMap<String, Object>();
         toReturn.put("success", true);
         toReturn.put("message", message);
         toReturn.put("data", data);
         return toReturn;
+    }
+
+    @Override
+    public String toString() {
+        return "URLScoreResponse{" +
+                "success=" + success +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
     }
 }
