@@ -3,12 +3,12 @@ package url.clasification.backend;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import url.clasification.backend.filestorage.FileStorageProperties;
+import url.clasification.backend.configuration.Properties;
 
 @SpringBootApplication
-@EnableConfigurationProperties({
-        FileStorageProperties.class
-})
+@EnableConfigurationProperties(
+        Properties.class
+)
 public class URLClasificationApp {
 
     public static void main(String[] args) {
